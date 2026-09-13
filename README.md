@@ -4,7 +4,7 @@ A working, reproducible deployment of `LibertAIDAI/DeepSeek-V4.1-Flash-REAP-256E
 two DGX Spark nodes (GB10, sm_121, 121 GiB unified memory each), tensor-parallel 2
 over the QSFP rail, with the Engram tables served from NVMe.
 
-It runs at **27.75 tok/s** single-stream decode, serves **64K context**, and passes a
+It runs at **25.65 tok/s** single-stream decode, serves **64K context**, and passes a
 needle-recall check from 6K to 64,851 prompt tokens. Getting there needed three kernel
 patches and a page-size fix that no released vLLM or FlashInfer build provides; that
 work is the point of this repository.
@@ -122,11 +122,12 @@ from the same kit, so the only difference between the rows is the speculative co
 | Arm | tok/s | TTFT | Accept rate | Accept length | Coherent | NaN |
 |---|---:|---:|---:|---:|---|---|
 | `baseline` (no speculation) | 13.16 | 0.24 s | — | 1.00 | yes | no |
-| **`greedy5` (DSpark, block 5, greedy draft)** | **25.65** | **0.45 s** | **0.4246** | **3.1231** | **yes** | **no** |
+| **`greedy5` (DSpark, block 5, greedy draft)** | **25.65** | 0.45 s | **0.4246** | **3.1231** | **yes** | **no** |
+| `probabilistic5` (block 5, sampled draft) | 25.97 | 0.23 s | 0.4246 | 3.1231 | yes | no |
+| `greedy10` (block 10) | 16.84 | 0.27 s | 0.1457 | 2.4568 | yes | no |
 
-Those are the two configurations that matter: the control and the adopted arm. The
-other two arms are described below rather than tabulated, because their absolute
-numbers were taken with the earlier timing method and are not comparable to these.
+All four arms were booted through `scripts/ab_spec.sh` on the same day from the same
+kit, with the corrected bench, so they are directly comparable.
 
 **1.95× decode throughput from speculative decoding.** Two different ratios matter
 here, and they are easy to confuse:
@@ -141,29 +142,35 @@ So each verify step costs about **1.6× a plain decode step** (76.0 ms against 4
 at 13.16 tok/s) and returns **3.12 tokens instead of 1**. That is the whole 1.95×, and
 it is why the win is real but sublinear in the acceptance length.
 
-TTFT is *worse*, not better: 0.45 s against 0.24 s. That is the expected shape —
-speculation pays on the decode loop, not on the prefill before it, and the first
-verify step has to draft a block before it can return anything. The 200-token
-generation is long enough that the decode saving dominates.
+### Three things the full table shows
 
-### The two arms we did not adopt
-
-**Block 10 is rejected.** Drafting twice as many tokens per step made it roughly 35%
-slower and *lowered* the acceptance length (2.46 against 3.1231), because verifying
+**Block 10 is 34% slower and has a lower acceptance length** — 16.84 tok/s and 2.4568
+against 25.65 and 3.1231, despite drafting twice as many tokens per step. Verifying
 k+1 tokens scales expert-weight traffic on a sparse MoE while per-draft acceptance
-falls. The publisher's card reports the same thing independently, on their own
-hardware and their own benchmark: "k=10 is 24–38% slower on every workload". That
-independent agreement is what the rejection rests on, not our absolute figure.
+falls, so a longer draft is a net loss here. The publisher's card reports the same
+thing independently, on their hardware and their benchmark: "k=10 is 24–38% slower on
+every workload". Our −34.3% sits inside their band, which is why this rejection is
+firmer than our own single measurement would make it.
 
-**`probabilistic` drafting is indistinguishable from `greedy` here, and that is a
-limit of the bench, not a result.** Both produced exactly the same counters. Upstream
-explains why: `probabilistic` "uses the full draft logits for the probability ratio
-test", and the gain is "only noticeable when temperature is sufficiently large
-(> 0.7)". This bench runs a greedy target at `temperature: 0`, where the token stream
-is byte-identical every run, so there is nothing for the two methods to disagree
-about. Judging them needs a sampled-target bench that does not exist yet.
-`SPEC_DRAFT_SAMPLE_METHOD` therefore defaults to `greedy`, which is definitionally
-aligned with a greedy target and has no upstream history of silent degeneration.
+**`probabilistic` drafting is indistinguishable from `greedy`, and that is a limit of
+the bench rather than a result.** Both produced exactly the same counters, and the
+throughput difference (+1.2%) is within run-to-run noise. Upstream explains why:
+`probabilistic` "uses the full draft logits for the probability ratio test", and the
+gain is "only noticeable when temperature is sufficiently large (> 0.7)". This bench
+runs a greedy target at `temperature: 0`, where the token stream is byte-identical
+every run, so there is nothing for the two methods to disagree about. Judging them
+needs a sampled-target bench that does not exist yet. `SPEC_DRAFT_SAMPLE_METHOD`
+defaults to `greedy`, which is definitionally aligned with a greedy target and has no
+upstream history of silent degeneration.
+
+**TTFT is not measurably worse under speculation, and our first claim that it was is
+retracted.** The `greedy5` median of 0.45 s comes from three runs of
+[0.789, 0.452, 0.241] — one cold run and one noisy one, where its own third run is
+*better* than the baseline. `probabilistic5` runs the same block-5 config and reports
+0.234 s. With three runs per arm, this bench cannot resolve a TTFT difference at this
+scale, and the honest reading is that all four arms sit around 0.23–0.27 s once warm.
+An earlier revision of this file claimed speculation costs TTFT; the full table does
+not support that.
 
 ### A note on these numbers and an earlier version of them
 
@@ -173,9 +180,9 @@ whole *buffer fills* rather than token arrivals, so it reported the first token 
 (TTFT 0.82 s instead of 0.24 s) and the decode span short, inflating throughput by
 about 6% (27.75 instead of 25.65). It also collapsed entirely on responses smaller
 than the read size. The bench now uses `read1()`, which returns as soon as data is
-available, and both rows above are from the corrected version. The correction is worth
-stating plainly because the inflated figures were published in an earlier revision of
-this file.
+available, and every number in this section is from the corrected version. The
+correction is worth stating plainly because the inflated figures were published in an
+earlier revision of this file.
 
 The corrected baseline agrees with an independent measurement of the same
 configuration taken for the sibling suites: 13.16 against 13.26 tok/s.
@@ -216,21 +223,24 @@ reports:
 
 | Their figure | Ours | Agreement |
 |---|---|---|
-| 13.7 tok/s, no speculation, prose-like prompt | 13.80 tok/s baseline | within 1% |
-| 27.0 tok/s, DSpark k=5, chat/explanation | 27.75 tok/s | within 3% |
-| "k=10 is 24–38% slower on every workload" | 35% slower | inside their band |
+| 13.7 tok/s, no speculation, prose-like prompt | 13.16 tok/s baseline | within 4% |
+| 27.0 tok/s, DSpark k=5, chat/explanation | 25.65 tok/s | within 5% |
+| "k=10 is 24–38% slower on every workload" | 34.3% slower | inside their band |
 
-The third one is the interesting one: their claim about block 10 and our measurement
-of it were made independently and land in the same range. That is the kind of agreement
-that makes a single number trustworthy.
+The third one is the most useful: their claim about block 10 and our measurement of it
+were made independently, on different hardware and different prompts, and land in the
+same range. That is the kind of agreement that makes a single number trustworthy. The
+first two are close but not exact, and the gap is expected — their card is explicit
+that throughput on this model varies by a factor of three with workload, and it does
+not publish the prompt behind either figure.
 
-**Their card also warns not to quote a single number for this model**, because
-throughput varies by a factor of three with workload — 19.2 tok/s on free prose against
-49.4 tok/s on counting prompts. Our 27.75 is measured on a structured explanation
-prompt, which is why it matches their explanation-class row and not their prose row.
-**Never benchmark this model on counting or "count to N" prompts**: a degenerate
-sequence lets the drafter accept nearly every token and reads about 2.6× the honest
-rate. Our bench prompt is a prose/explanation task for exactly this reason.
+**Their card also warns not to quote a single number for this model**: 19.2 tok/s on
+free prose against 49.4 tok/s on counting prompts. Our 25.65 is measured on a
+structured explanation prompt, which is why it lands near their explanation-class row
+rather than their prose row. **Never benchmark this model on counting or "count to N"
+prompts**: a degenerate sequence lets the drafter accept nearly every token and reads
+about 2.6× the honest rate. Our bench prompt is a prose/explanation task for exactly
+this reason.
 
 ### The rest of the picture
 
@@ -492,9 +502,9 @@ nothing else.
   dropped. `mtp` is rejected on purpose: V4.1 ships DSpark stages under the `mtp.*`
   prefix and has no classic-MTP draft, so the engine raises. Preflight validates the
   value too.
-- **`SPEC_METHOD=dspark` with `SPEC_NUM_TOKENS=5` is the measured winner: 27.75 tok/s
-  against a same-day 13.80 tok/s control, a 2.01× speedup, coherent and NaN-free, at a
-  0.4246 acceptance ratio.**
+- **`SPEC_METHOD=dspark` with `SPEC_NUM_TOKENS=5` is the measured winner: 25.65 tok/s
+  against a same-day 13.16 tok/s control, a 1.95× speedup, coherent and NaN-free, at a
+  0.4246 acceptance rate and a 3.1231 mean acceptance length.**
 
 ### Why the block is 5 and not any number
 
@@ -562,7 +572,7 @@ attack them:
 2. **Concurrency.** Aggregate throughput plateaus at ~22 tok/s because
    `MAX_NUM_SEQS=2` refuses to admit requests 3 and 4. There is headroom here and it is
    the cheapest win on the list.
-3. **Decode.** DSpark got 2.01×. Block 10 was worse, not better, so the obvious knob is
+3. **Decode.** DSpark got 1.95×. Block 10 was worse, not better, so the obvious knob is
    spent — the remaining levers are kernel-level, not configuration.
 
 Nothing here is a promise about dates. Every number will come with its receipt.

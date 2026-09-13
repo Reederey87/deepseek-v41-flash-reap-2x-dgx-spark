@@ -54,7 +54,8 @@ The three numbers use vLLM's own definitions
 | `per_position` | `accepted_per_pos[i] / drafts` | probability a draft had **at least** `i+1` tokens accepted |
 
 `mean_acceptance_length` is the one that explains throughput, and it is not
-`1 + accept_ratio` — for the block-5 arm it is 3.12 against a 0.42 acceptance rate.
+`1 + accept_ratio` — for the block-5 arm it is 3.1231 against a 0.4246 acceptance
+rate.
 The per-position vector is cumulative, so it sums to `accepted / drafts`, not to 1.
 
 The `position` label is part of the counter key. Dropping it collapses all five

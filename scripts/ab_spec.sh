@@ -41,7 +41,7 @@ die() { printf '\033[1;31m[ab]\033[0m ERROR: %s\n' "$*" >&2; exit 1; }
 
 # name|SPEC_METHOD|SPEC_NUM_TOKENS|extra env...
 #
-# `baseline` is the deployed configuration (SPEC=none, the measured 13.80 tok/s
+# `baseline` is the deployed configuration (SPEC=none, the measured 13.16 tok/s
 # control) so every speculative row has a same-day control. `greedy5` is the
 # adopted winner. `greedy10` tests whether the acceptance curve keeps climbing
 # past the first block — it does not. `probabilistic5` is the higher-acceptance
