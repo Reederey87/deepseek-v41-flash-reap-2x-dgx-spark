@@ -1,0 +1,1571 @@
+{
+  "schema_version": 1,
+  "run_id": "a83ead2f76",
+  "base": "http://127.0.0.1:8001",
+  "model": "deepseek-v4.1-flash-reap256",
+  "args": {
+    "levels": "1,2,3,4",
+    "modes": "code,data,chat",
+    "ctx": "0",
+    "reps": 3,
+    "max_tokens": 400,
+    "stagger": 0.0,
+    "shared_prefix": false,
+    "chat_temp0": false,
+    "thinking": false,
+    "min_hit_ratio": 0.8,
+    "spread_tolerance": 0.1,
+    "status": "status.json",
+    "out": "conc-ctx0.json",
+    "force": true
+  },
+  "initial_metrics": {
+    "prefix_cache_queries_total": 313924.0,
+    "prefix_cache_hits_total": 117504.0,
+    "num_preemptions_total": 0.0,
+    "num_requests_running": 0.0,
+    "num_requests_waiting": 0.0
+  },
+  "cells": [
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 1,
+      "rep": 0,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 12.8,
+      "stream_tps_median": 12.8,
+      "ttft": {
+        "p50": 0.193,
+        "p95": 0.193,
+        "p99": 0.193
+      },
+      "itl": {
+        "p50": 0.075,
+        "p95": 0.091,
+        "p99": 0.097
+      },
+      "starvation_age_s": 0.19,
+      "tokens": 400,
+      "prompt_tokens": 21,
+      "wall": 31.2,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n1-r0-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 21.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 1,
+      "rep": 1,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 13.2,
+      "stream_tps_median": 13.2,
+      "ttft": {
+        "p50": 0.207,
+        "p95": 0.207,
+        "p99": 0.207
+      },
+      "itl": {
+        "p50": 0.075,
+        "p95": 0.077,
+        "p99": 0.087
+      },
+      "starvation_age_s": 0.21,
+      "tokens": 400,
+      "prompt_tokens": 26,
+      "wall": 30.4,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n1-r1-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 26.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 1,
+      "rep": 2,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 13.2,
+      "stream_tps_median": 13.3,
+      "ttft": {
+        "p50": 0.2,
+        "p95": 0.2,
+        "p99": 0.2
+      },
+      "itl": {
+        "p50": 0.075,
+        "p95": 0.077,
+        "p99": 0.095
+      },
+      "starvation_age_s": 0.2,
+      "tokens": 400,
+      "prompt_tokens": 22,
+      "wall": 30.2,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n1-r2-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 22.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 2,
+      "rep": 0,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 21.6,
+      "stream_tps_median": 10.9,
+      "ttft": {
+        "p50": 0.207,
+        "p95": 0.397,
+        "p99": 0.397
+      },
+      "itl": {
+        "p50": 0.089,
+        "p95": 0.109,
+        "p99": 0.111
+      },
+      "starvation_age_s": 0.4,
+      "tokens": 800,
+      "prompt_tokens": 45,
+      "wall": 37.0,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n2-r0-l0-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n2-r0-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 45.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 2,
+      "rep": 1,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 21.5,
+      "stream_tps_median": 10.8,
+      "ttft": {
+        "p50": 0.209,
+        "p95": 0.401,
+        "p99": 0.401
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.111,
+        "p99": 0.121
+      },
+      "starvation_age_s": 0.4,
+      "tokens": 800,
+      "prompt_tokens": 47,
+      "wall": 37.1,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n2-r1-l0-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n2-r1-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 47.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 2,
+      "rep": 2,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 21.7,
+      "stream_tps_median": 10.9,
+      "ttft": {
+        "p50": 0.208,
+        "p95": 0.406,
+        "p99": 0.406
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.101,
+        "p99": 0.12
+      },
+      "starvation_age_s": 0.41,
+      "tokens": 800,
+      "prompt_tokens": 48,
+      "wall": 36.8,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n2-r2-l0-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n2-r2-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 48.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 3,
+      "rep": 0,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 17.9,
+      "stream_tps_median": 11.2,
+      "ttft": {
+        "p50": 0.39,
+        "p95": 36.119,
+        "p99": 36.119
+      },
+      "itl": {
+        "p50": 0.089,
+        "p95": 0.091,
+        "p99": 0.103
+      },
+      "starvation_age_s": 36.12,
+      "tokens": 1200,
+      "prompt_tokens": 67,
+      "wall": 67.0,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n3-r0-l0-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n3-r0-l1-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n3-r0-l2-measure"
+        ],
+        "expected_measured_requests": 3,
+        "http_200_with_usage": 3,
+        "metric_queries_delta": 67.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 3,
+      "rep": 1,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 18.1,
+      "stream_tps_median": 11.1,
+      "ttft": {
+        "p50": 0.413,
+        "p95": 36.274,
+        "p99": 36.274
+      },
+      "itl": {
+        "p50": 0.089,
+        "p95": 0.091,
+        "p99": 0.092
+      },
+      "starvation_age_s": 36.27,
+      "tokens": 1200,
+      "prompt_tokens": 71,
+      "wall": 66.2,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n3-r1-l0-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n3-r1-l1-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n3-r1-l2-measure"
+        ],
+        "expected_measured_requests": 3,
+        "http_200_with_usage": 3,
+        "metric_queries_delta": 71.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 3,
+      "rep": 2,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 17.8,
+      "stream_tps_median": 10.8,
+      "ttft": {
+        "p50": 0.27,
+        "p95": 37.365,
+        "p99": 37.365
+      },
+      "itl": {
+        "p50": 0.089,
+        "p95": 0.102,
+        "p99": 0.112
+      },
+      "starvation_age_s": 37.37,
+      "tokens": 1200,
+      "prompt_tokens": 69,
+      "wall": 67.4,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n3-r2-l0-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n3-r2-l1-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n3-r2-l2-measure"
+        ],
+        "expected_measured_requests": 3,
+        "http_200_with_usage": 3,
+        "metric_queries_delta": 69.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 4,
+      "rep": 0,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 22.2,
+      "stream_tps_median": 11.2,
+      "ttft": {
+        "p50": 36.072,
+        "p95": 36.276,
+        "p99": 36.276
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.091,
+        "p99": 0.092
+      },
+      "starvation_age_s": 36.28,
+      "tokens": 1600,
+      "prompt_tokens": 93,
+      "wall": 72.1,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n4-r0-l0-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n4-r0-l1-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n4-r0-l2-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n4-r0-l3-measure"
+        ],
+        "expected_measured_requests": 4,
+        "http_200_with_usage": 4,
+        "metric_queries_delta": 93.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 4,
+      "rep": 1,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 21.8,
+      "stream_tps_median": 11.0,
+      "ttft": {
+        "p50": 36.4,
+        "p95": 36.592,
+        "p99": 36.592
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.102,
+        "p99": 0.117
+      },
+      "starvation_age_s": 36.59,
+      "tokens": 1600,
+      "prompt_tokens": 93,
+      "wall": 73.4,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n4-r1-l0-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n4-r1-l1-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n4-r1-l2-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n4-r1-l3-measure"
+        ],
+        "expected_measured_requests": 4,
+        "http_200_with_usage": 4,
+        "metric_queries_delta": 93.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "code",
+      "ctx": 0,
+      "level": 4,
+      "rep": 2,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 22.1,
+      "stream_tps_median": 11.1,
+      "ttft": {
+        "p50": 36.541,
+        "p95": 36.748,
+        "p99": 36.748
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.092,
+        "p99": 0.093
+      },
+      "starvation_age_s": 36.75,
+      "tokens": 1600,
+      "prompt_tokens": 93,
+      "wall": 72.4,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-code-c0-n4-r2-l0-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n4-r2-l1-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n4-r2-l2-measure",
+          "glm53-ladder-a83ead2f76-code-c0-n4-r2-l3-measure"
+        ],
+        "expected_measured_requests": 4,
+        "http_200_with_usage": 4,
+        "metric_queries_delta": 93.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 1,
+      "rep": 0,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 13.0,
+      "stream_tps_median": 13.1,
+      "ttft": {
+        "p50": 0.321,
+        "p95": 0.321,
+        "p99": 0.321
+      },
+      "itl": {
+        "p50": 0.075,
+        "p95": 0.082,
+        "p99": 0.085
+      },
+      "starvation_age_s": 0.32,
+      "tokens": 400,
+      "prompt_tokens": 22,
+      "wall": 30.7,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n1-r0-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 22.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 1,
+      "rep": 1,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 12.9,
+      "stream_tps_median": 13.0,
+      "ttft": {
+        "p50": 0.197,
+        "p95": 0.197,
+        "p99": 0.197
+      },
+      "itl": {
+        "p50": 0.075,
+        "p95": 0.098,
+        "p99": 0.149
+      },
+      "starvation_age_s": 0.2,
+      "tokens": 400,
+      "prompt_tokens": 20,
+      "wall": 30.9,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n1-r1-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 20.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 1,
+      "rep": 2,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 11.5,
+      "stream_tps_median": 11.6,
+      "ttft": {
+        "p50": 0.529,
+        "p95": 0.529,
+        "p99": 0.529
+      },
+      "itl": {
+        "p50": 0.088,
+        "p95": 0.101,
+        "p99": 0.105
+      },
+      "starvation_age_s": 0.53,
+      "tokens": 400,
+      "prompt_tokens": 26,
+      "wall": 34.9,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n1-r2-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 26.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 1,
+      "rep": 3,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 11.3,
+      "stream_tps_median": 11.5,
+      "ttft": {
+        "p50": 0.461,
+        "p95": 0.461,
+        "p99": 0.461
+      },
+      "itl": {
+        "p50": 0.087,
+        "p95": 0.101,
+        "p99": 0.106
+      },
+      "starvation_age_s": 0.46,
+      "tokens": 400,
+      "prompt_tokens": 22,
+      "wall": 35.3,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n1-r3-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 22.0,
+        "metric_hits_delta": 0.0
+      },
+      "rerun": true
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 2,
+      "rep": 0,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 18.9,
+      "stream_tps_median": 9.5,
+      "ttft": {
+        "p50": 0.323,
+        "p95": 0.543,
+        "p99": 0.543
+      },
+      "itl": {
+        "p50": 0.106,
+        "p95": 0.124,
+        "p99": 0.134
+      },
+      "starvation_age_s": 0.54,
+      "tokens": 800,
+      "prompt_tokens": 44,
+      "wall": 42.4,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n2-r0-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n2-r0-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 44.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 2,
+      "rep": 1,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 19.8,
+      "stream_tps_median": 10.0,
+      "ttft": {
+        "p50": 0.307,
+        "p95": 0.523,
+        "p99": 0.523
+      },
+      "itl": {
+        "p50": 0.101,
+        "p95": 0.12,
+        "p99": 0.177
+      },
+      "starvation_age_s": 0.52,
+      "tokens": 800,
+      "prompt_tokens": 42,
+      "wall": 40.4,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n2-r1-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n2-r1-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 42.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 2,
+      "rep": 2,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 22.0,
+      "stream_tps_median": 11.1,
+      "ttft": {
+        "p50": 0.197,
+        "p95": 0.411,
+        "p99": 0.411
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.092,
+        "p99": 0.178
+      },
+      "starvation_age_s": 0.41,
+      "tokens": 800,
+      "prompt_tokens": 46,
+      "wall": 36.4,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n2-r2-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n2-r2-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 46.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 2,
+      "rep": 3,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 21.4,
+      "stream_tps_median": 10.8,
+      "ttft": {
+        "p50": 0.2,
+        "p95": 0.41,
+        "p99": 0.41
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.112,
+        "p99": 0.121
+      },
+      "starvation_age_s": 0.41,
+      "tokens": 800,
+      "prompt_tokens": 48,
+      "wall": 37.4,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n2-r3-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n2-r3-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 48.0,
+        "metric_hits_delta": 0.0
+      },
+      "rerun": true
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 3,
+      "rep": 0,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 18.2,
+      "stream_tps_median": 11.2,
+      "ttft": {
+        "p50": 0.393,
+        "p95": 35.953,
+        "p99": 35.953
+      },
+      "itl": {
+        "p50": 0.088,
+        "p95": 0.09,
+        "p99": 0.091
+      },
+      "starvation_age_s": 35.95,
+      "tokens": 1200,
+      "prompt_tokens": 70,
+      "wall": 66.1,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n3-r0-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n3-r0-l1-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n3-r0-l2-measure"
+        ],
+        "expected_measured_requests": 3,
+        "http_200_with_usage": 3,
+        "metric_queries_delta": 70.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 3,
+      "rep": 1,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 17.8,
+      "stream_tps_median": 11.2,
+      "ttft": {
+        "p50": 0.392,
+        "p95": 36.074,
+        "p99": 36.074
+      },
+      "itl": {
+        "p50": 0.089,
+        "p95": 0.092,
+        "p99": 0.112
+      },
+      "starvation_age_s": 36.07,
+      "tokens": 1200,
+      "prompt_tokens": 64,
+      "wall": 67.6,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n3-r1-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n3-r1-l1-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n3-r1-l2-measure"
+        ],
+        "expected_measured_requests": 3,
+        "http_200_with_usage": 3,
+        "metric_queries_delta": 64.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 3,
+      "rep": 2,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 17.2,
+      "stream_tps_median": 10.2,
+      "ttft": {
+        "p50": 0.344,
+        "p95": 39.783,
+        "p99": 39.783
+      },
+      "itl": {
+        "p50": 0.089,
+        "p95": 0.121,
+        "p99": 0.129
+      },
+      "starvation_age_s": 39.78,
+      "tokens": 1200,
+      "prompt_tokens": 68,
+      "wall": 69.7,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n3-r2-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n3-r2-l1-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n3-r2-l2-measure"
+        ],
+        "expected_measured_requests": 3,
+        "http_200_with_usage": 3,
+        "metric_queries_delta": 68.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 4,
+      "rep": 0,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 21.9,
+      "stream_tps_median": 11.0,
+      "ttft": {
+        "p50": 36.136,
+        "p95": 36.336,
+        "p99": 36.336
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.092,
+        "p99": 0.116
+      },
+      "starvation_age_s": 36.34,
+      "tokens": 1600,
+      "prompt_tokens": 90,
+      "wall": 73.0,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n4-r0-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n4-r0-l1-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n4-r0-l2-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n4-r0-l3-measure"
+        ],
+        "expected_measured_requests": 4,
+        "http_200_with_usage": 4,
+        "metric_queries_delta": 90.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 4,
+      "rep": 1,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 22.1,
+      "stream_tps_median": 11.1,
+      "ttft": {
+        "p50": 36.171,
+        "p95": 36.377,
+        "p99": 36.377
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.092,
+        "p99": 0.115
+      },
+      "starvation_age_s": 36.38,
+      "tokens": 1600,
+      "prompt_tokens": 90,
+      "wall": 72.5,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n4-r1-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n4-r1-l1-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n4-r1-l2-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n4-r1-l3-measure"
+        ],
+        "expected_measured_requests": 4,
+        "http_200_with_usage": 4,
+        "metric_queries_delta": 90.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "data",
+      "ctx": 0,
+      "level": 4,
+      "rep": 2,
+      "temperature": 0.0,
+      "thinking": false,
+      "agg_tps": 21.3,
+      "stream_tps_median": 10.7,
+      "ttft": {
+        "p50": 36.355,
+        "p95": 36.55,
+        "p99": 36.55
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.116,
+        "p99": 0.124
+      },
+      "starvation_age_s": 36.55,
+      "tokens": 1600,
+      "prompt_tokens": 90,
+      "wall": 75.1,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-data-c0-n4-r2-l0-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n4-r2-l1-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n4-r2-l2-measure",
+          "glm53-ladder-a83ead2f76-data-c0-n4-r2-l3-measure"
+        ],
+        "expected_measured_requests": 4,
+        "http_200_with_usage": 4,
+        "metric_queries_delta": 90.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 1,
+      "rep": 0,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 9.8,
+      "stream_tps_median": 10.0,
+      "ttft": {
+        "p50": 0.769,
+        "p95": 0.769,
+        "p99": 0.769
+      },
+      "itl": {
+        "p50": 0.099,
+        "p95": 0.105,
+        "p99": 0.113
+      },
+      "starvation_age_s": 0.77,
+      "tokens": 272,
+      "prompt_tokens": 28,
+      "wall": 27.8,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n1-r0-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 28.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 1,
+      "rep": 1,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 10.3,
+      "stream_tps_median": 10.5,
+      "ttft": {
+        "p50": 0.424,
+        "p95": 0.424,
+        "p99": 0.424
+      },
+      "itl": {
+        "p50": 0.097,
+        "p95": 0.103,
+        "p99": 0.107
+      },
+      "starvation_age_s": 0.42,
+      "tokens": 302,
+      "prompt_tokens": 30,
+      "wall": 29.2,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n1-r1-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 30.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 1,
+      "rep": 2,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 10.9,
+      "stream_tps_median": 11.0,
+      "ttft": {
+        "p50": 0.347,
+        "p95": 0.347,
+        "p99": 0.347
+      },
+      "itl": {
+        "p50": 0.09,
+        "p95": 0.097,
+        "p99": 0.099
+      },
+      "starvation_age_s": 0.35,
+      "tokens": 271,
+      "prompt_tokens": 28,
+      "wall": 24.8,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n1-r2-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 28.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 1,
+      "rep": 3,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 10.3,
+      "stream_tps_median": 10.4,
+      "ttft": {
+        "p50": 0.394,
+        "p95": 0.394,
+        "p99": 0.394
+      },
+      "itl": {
+        "p50": 0.095,
+        "p95": 0.106,
+        "p99": 0.11
+      },
+      "starvation_age_s": 0.39,
+      "tokens": 273,
+      "prompt_tokens": 28,
+      "wall": 26.6,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n1-r3-l0-measure"
+        ],
+        "expected_measured_requests": 1,
+        "http_200_with_usage": 1,
+        "metric_queries_delta": 28.0,
+        "metric_hits_delta": 0.0
+      },
+      "rerun": true
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 2,
+      "rep": 0,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 15.8,
+      "stream_tps_median": 8.1,
+      "ttft": {
+        "p50": 0.234,
+        "p95": 0.474,
+        "p99": 0.474
+      },
+      "itl": {
+        "p50": 0.123,
+        "p95": 0.141,
+        "p99": 0.147
+      },
+      "starvation_age_s": 0.47,
+      "tokens": 522,
+      "prompt_tokens": 56,
+      "wall": 33.0,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n2-r0-l0-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n2-r0-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 56.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 2,
+      "rep": 1,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 16.6,
+      "stream_tps_median": 8.5,
+      "ttft": {
+        "p50": 0.246,
+        "p95": 0.486,
+        "p99": 0.486
+      },
+      "itl": {
+        "p50": 0.118,
+        "p95": 0.137,
+        "p99": 0.142
+      },
+      "starvation_age_s": 0.49,
+      "tokens": 587,
+      "prompt_tokens": 58,
+      "wall": 35.3,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n2-r1-l0-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n2-r1-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 58.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 2,
+      "rep": 2,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 16.0,
+      "stream_tps_median": 8.4,
+      "ttft": {
+        "p50": 0.222,
+        "p95": 0.451,
+        "p99": 0.451
+      },
+      "itl": {
+        "p50": 0.12,
+        "p95": 0.139,
+        "p99": 0.147
+      },
+      "starvation_age_s": 0.45,
+      "tokens": 588,
+      "prompt_tokens": 58,
+      "wall": 36.8,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n2-r2-l0-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n2-r2-l1-measure"
+        ],
+        "expected_measured_requests": 2,
+        "http_200_with_usage": 2,
+        "metric_queries_delta": 58.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 3,
+      "rep": 0,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 14.4,
+      "stream_tps_median": 8.6,
+      "ttft": {
+        "p50": 0.444,
+        "p95": 32.279,
+        "p99": 32.279
+      },
+      "itl": {
+        "p50": 0.108,
+        "p95": 0.133,
+        "p99": 0.139
+      },
+      "starvation_age_s": 32.28,
+      "tokens": 863,
+      "prompt_tokens": 84,
+      "wall": 59.9,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n3-r0-l0-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n3-r0-l1-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n3-r0-l2-measure"
+        ],
+        "expected_measured_requests": 3,
+        "http_200_with_usage": 3,
+        "metric_queries_delta": 84.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 3,
+      "rep": 1,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 15.0,
+      "stream_tps_median": 8.9,
+      "ttft": {
+        "p50": 0.448,
+        "p95": 29.83,
+        "p99": 29.83
+      },
+      "itl": {
+        "p50": 0.109,
+        "p95": 0.132,
+        "p99": 0.14
+      },
+      "starvation_age_s": 29.83,
+      "tokens": 840,
+      "prompt_tokens": 86,
+      "wall": 56.0,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n3-r1-l0-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n3-r1-l1-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n3-r1-l2-measure"
+        ],
+        "expected_measured_requests": 3,
+        "http_200_with_usage": 3,
+        "metric_queries_delta": 86.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 3,
+      "rep": 2,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 15.0,
+      "stream_tps_median": 8.9,
+      "ttft": {
+        "p50": 0.63,
+        "p95": 32.689,
+        "p99": 32.689
+      },
+      "itl": {
+        "p50": 0.108,
+        "p95": 0.129,
+        "p99": 0.134
+      },
+      "starvation_age_s": 32.69,
+      "tokens": 848,
+      "prompt_tokens": 86,
+      "wall": 56.6,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n3-r2-l0-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n3-r2-l1-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n3-r2-l2-measure"
+        ],
+        "expected_measured_requests": 3,
+        "http_200_with_usage": 3,
+        "metric_queries_delta": 86.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 4,
+      "rep": 0,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 18.5,
+      "stream_tps_median": 9.4,
+      "ttft": {
+        "p50": 29.464,
+        "p95": 31.844,
+        "p99": 31.844
+      },
+      "itl": {
+        "p50": 0.107,
+        "p95": 0.128,
+        "p99": 0.134
+      },
+      "starvation_age_s": 31.84,
+      "tokens": 1057,
+      "prompt_tokens": 114,
+      "wall": 57.2,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r0-l0-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r0-l1-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r0-l2-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r0-l3-measure"
+        ],
+        "expected_measured_requests": 4,
+        "http_200_with_usage": 4,
+        "metric_queries_delta": 114.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 4,
+      "rep": 1,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 18.3,
+      "stream_tps_median": 9.4,
+      "ttft": {
+        "p50": 27.227,
+        "p95": 33.654,
+        "p99": 33.654
+      },
+      "itl": {
+        "p50": 0.108,
+        "p95": 0.123,
+        "p99": 0.132
+      },
+      "starvation_age_s": 33.65,
+      "tokens": 1106,
+      "prompt_tokens": 114,
+      "wall": 60.6,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r1-l0-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r1-l1-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r1-l2-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r1-l3-measure"
+        ],
+        "expected_measured_requests": 4,
+        "http_200_with_usage": 4,
+        "metric_queries_delta": 114.0,
+        "metric_hits_delta": 0.0
+      }
+    },
+    {
+      "mode": "chat",
+      "ctx": 0,
+      "level": 4,
+      "rep": 2,
+      "temperature": 0.7,
+      "thinking": false,
+      "agg_tps": 18.7,
+      "stream_tps_median": 9.4,
+      "ttft": {
+        "p50": 30.023,
+        "p95": 30.892,
+        "p99": 30.892
+      },
+      "itl": {
+        "p50": 0.107,
+        "p95": 0.125,
+        "p99": 0.132
+      },
+      "starvation_age_s": 30.89,
+      "tokens": 1054,
+      "prompt_tokens": 114,
+      "wall": 56.5,
+      "cache_hit_ratio": 0.0,
+      "preemptions": 0,
+      "errors": 0,
+      "error_samples": [],
+      "audit": {
+        "warm_request_ids": [],
+        "measured_request_ids": [
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r2-l0-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r2-l1-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r2-l2-measure",
+          "glm53-ladder-a83ead2f76-chat-c0-n4-r2-l3-measure"
+        ],
+        "expected_measured_requests": 4,
+        "http_200_with_usage": 4,
+        "metric_queries_delta": 114.0,
+        "metric_hits_delta": 0.0
+      }
+    }
+  ]
+}

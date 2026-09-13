@@ -1,0 +1,113 @@
+{
+  "created_at": "2026-09-12T22:56:54.869836+00:00",
+  "base_url": "http://127.0.0.1:8001/v1",
+  "model": "deepseek-v4.1-flash-reap256",
+  "prompt_tokens_target": 8400,
+  "runs": 3,
+  "concurrent_chats": 1,
+  "summary": {
+    "pairs": 3,
+    "cold_ttft_median_s": 5.817,
+    "warm_ttft_median_s": 1.777,
+    "speedup_median": 3.273,
+    "prefix_hit_ratio_median": 0.9954,
+    "hit_efficiency_median": 1.2143,
+    "page_tokens": 3584,
+    "min_hit_ratio_required": null
+  },
+  "pairs": [
+    {
+      "chat": 0,
+      "ok": true,
+      "reset": null,
+      "cold": {
+        "ok": true,
+        "http": 200,
+        "wall_s": 7.538,
+        "prompt_tokens": 8710,
+        "completion_tokens": 9,
+        "text_head": "CKSUM-00-89253788"
+      },
+      "warm": {
+        "ok": true,
+        "http": 200,
+        "wall_s": 2.231,
+        "prompt_tokens": 8744,
+        "completion_tokens": 20,
+        "text_head": "Operators must log checksum CKSUM-00-89253788 before every deployment window."
+      },
+      "cold_metrics": {
+        "hit_ratio": 0.0,
+        "queries": 8710
+      },
+      "warm_ttft_s": 2.231,
+      "cold_ttft_s": 7.538,
+      "speedup": 3.379,
+      "prefix_hit_ratio": 0.9954,
+      "hit_efficiency": 1.2143,
+      "needle_code": "CKSUM-00-89253788"
+    },
+    {
+      "chat": 1,
+      "ok": true,
+      "reset": null,
+      "cold": {
+        "ok": true,
+        "http": 200,
+        "wall_s": 5.817,
+        "prompt_tokens": 8710,
+        "completion_tokens": 9,
+        "text_head": "CKSUM-01-89253788"
+      },
+      "warm": {
+        "ok": true,
+        "http": 200,
+        "wall_s": 1.777,
+        "prompt_tokens": 8744,
+        "completion_tokens": 20,
+        "text_head": "Operators must log checksum CKSUM-01-89253788 before every deployment window."
+      },
+      "cold_metrics": {
+        "hit_ratio": 0.0,
+        "queries": 8710
+      },
+      "warm_ttft_s": 1.777,
+      "cold_ttft_s": 5.817,
+      "speedup": 3.273,
+      "prefix_hit_ratio": 0.9954,
+      "hit_efficiency": 1.2143,
+      "needle_code": "CKSUM-01-89253788"
+    },
+    {
+      "chat": 2,
+      "ok": true,
+      "reset": null,
+      "cold": {
+        "ok": true,
+        "http": 200,
+        "wall_s": 5.773,
+        "prompt_tokens": 8710,
+        "completion_tokens": 9,
+        "text_head": "CKSUM-02-89253788"
+      },
+      "warm": {
+        "ok": true,
+        "http": 200,
+        "wall_s": 1.733,
+        "prompt_tokens": 8744,
+        "completion_tokens": 20,
+        "text_head": "Operators must log checksum CKSUM-02-89253788 before every deployment window."
+      },
+      "cold_metrics": {
+        "hit_ratio": 0.0,
+        "queries": 8710
+      },
+      "warm_ttft_s": 1.733,
+      "cold_ttft_s": 5.773,
+      "speedup": 3.331,
+      "prefix_hit_ratio": 0.9954,
+      "hit_efficiency": 1.2143,
+      "needle_code": "CKSUM-02-89253788"
+    }
+  ]
+}

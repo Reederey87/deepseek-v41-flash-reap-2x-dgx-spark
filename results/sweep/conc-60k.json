@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "run_id": "3e759299b0",
+  "base": "http://127.0.0.1:8001",
+  "model": "deepseek-v4.1-flash-reap256",
+  "args": {
+    "levels": "1",
+    "modes": "chat",
+    "ctx": "60000",
+    "reps": 1,
+    "max_tokens": 400,
+    "stagger": 0.0,
+    "shared_prefix": false,
+    "chat_temp0": false,
+    "thinking": false,
+    "min_hit_ratio": 0.8,
+    "spread_tolerance": 0.1,
+    "status": "status.json",
+    "out": "conc-60k.json",
+    "force": true
+  },
+  "initial_metrics": {
+    "prefix_cache_queries_total": 316266.0,
+    "prefix_cache_hits_total": 117504.0,
+    "num_preemptions_total": 0.0,
+    "num_requests_running": 0.0,
+    "num_requests_waiting": 0.0
+  },
+  "cells": [
+    {
+      "mode": "chat",
+      "ctx": 60000,
+      "level": 1,
+      "rep": 0,
+      "errors": 1,
+      "error_samples": [
+        "HTTP 400: b'{\"error\":{\"message\":\"This model\\'s maximum context length is 65536 tokens. However, you requested 1 output tokens and your prompt contains at least 65536 input tokens, for a total of at least 65537 tok'"
+      ],
+      "audit": {
+        "warm_request_ids": [
+          "glm53-ladder-3e759299b0-chat-c60000-n1-r0-l0-warm"
+        ],
+        "measured_request_ids": []
+      }
+    }
+  ]
+}

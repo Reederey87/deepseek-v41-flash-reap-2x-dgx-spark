@@ -1,0 +1,22 @@
+{
+  "arm": "greedy10",
+  "spec_method": "dspark",
+  "spec_tokens": "10",
+  "overrides": "SPEC_DRAFT_SAMPLE_METHOD=greedy",
+  "start_rc": 0,
+  "smoke_rc": 0,
+  "bench_rc": 0,
+  "health": "200",
+  "ts": 1789266663.5926023,
+  "decode": {
+    "tok_s_median": 17.95910085628235,
+    "tok_s_min": 8.92261526021674,
+    "tok_s_max": 18.036467816449044,
+    "ttft_median_s": 0.9649673059975612,
+    "any_nan": false,
+    "coherent": true,
+    "accept_ratio_median": 0.1457,
+    "accepted_per_step_median": null
+  },
+  "verdict": "ok"
+}

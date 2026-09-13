@@ -1,0 +1,14 @@
+.env
+__pycache__/
+.pytest_cache/
+.venv/
+*.pyc
+local/
+
+# Per project convention (see AGENTS.md): agent config and the spec working
+# folder stay local.
+spec/
+STATUS.md
+RESEARCH.md
+tests/
+uv.lock

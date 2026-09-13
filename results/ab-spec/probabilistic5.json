@@ -1,0 +1,22 @@
+{
+  "arm": "probabilistic5",
+  "spec_method": "dspark",
+  "spec_tokens": "5",
+  "overrides": "SPEC_DRAFT_SAMPLE_METHOD=probabilistic",
+  "start_rc": 0,
+  "smoke_rc": 0,
+  "bench_rc": 0,
+  "health": "200",
+  "ts": 1789267147.8460577,
+  "decode": {
+    "tok_s_median": 26.637264249142593,
+    "tok_s_min": 14.24577944298374,
+    "tok_s_max": 27.957050993603364,
+    "ttft_median_s": 1.4732894339977065,
+    "any_nan": false,
+    "coherent": true,
+    "accept_ratio_median": 0.4246,
+    "accepted_per_step_median": null
+  },
+  "verdict": "ok"
+}
